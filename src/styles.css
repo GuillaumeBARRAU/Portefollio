@@ -1,0 +1,179 @@
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Styles globaux */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif; /* Police futuriste */
+    background-color: #0d1117; /* Fond sombre */
+    color: #c9d1d9; /* Couleur claire du texte */
+    scroll-behavior: smooth; /* Défilement fluide */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #161b22; /* Fond sombre */
+    box-shadow: 0 0 15px #00ffcc;
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.title {
+    color: #00ffcc;
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+    text-shadow: 0 0 10px #00ffcc; /* Ombre initiale */
+  }
+  
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #161b22;
+    background-color: #00ffcc;
+    border-color: #00ffcc;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+}
+
+/* Section principale */
+.section {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    animation: neon 1.5s infinite alternate; /* Effet lumineux */
+}
+
+.section p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+/* Animation des titres */
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+    }
+}
+
+/* Carousel */
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: #21262d; /* Fond sombre */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #00ffcc;
+    color: #c9d1d9;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Soulève légèrement la carte */
+    box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+    border-color: #00ffcc;
+}
+
+/* Footer */
+.chat-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #161b22;
+    padding: 1rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#chat-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+#chat-box input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    background-color: #21262d;
+    color: #c9d1d9;
+}
+
+#chat-box button {
+    padding: 0.5rem 1rem;
+    background-color: #00ffcc;
+    color: #161b22;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#chat-box button:hover {
+    background-color: #00cc99;
+    transition: all 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .carousel-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .section p {
+        font-size: 1rem;
+    }
+}
