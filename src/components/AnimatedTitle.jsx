@@ -15,7 +15,7 @@ function AnimatedTitle() {
   ; // Tableau vide pour exécuter l'effet uniquement au montage
 
   return (
-    <h1 className="title">Bienvenue sur mon Portfolio Cyberpunk</h1>
+    <h1 className="title">Bienvenue sur mon Portfolio</h1>
   );
 }
 
