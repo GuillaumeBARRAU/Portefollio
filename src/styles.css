@@ -11,63 +11,70 @@ body, html {
   color: #c9d1d9; /* Couleur claire du texte */
   scroll-behavior: smooth; /* Défilement fluide */
 }
-
-/* Conteneur principal avec trois colonnes */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Trois colonnes : gauche, centre, droite */
-  gap: 20px; /* Espacement entre les colonnes */
-  height: 100vh; /* Prend toute la hauteur de la fenêtre */
-  padding: 20px;
-  background-color: #0d1117; /* Fond sombre */
-
+/* ✅ Conteneur principal */
+.page-container {
   position: relative;
   width: 100%;
   height: 100vh;
-
-  background-color: black; /* Fond noir pour accentuer l'effet miroir */
-  overflow: hidden; /* Empêche le débordement du reflet */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ✅ Effet miroir en arrière-plan */
 .reflection {
-  transform: scaleY(-1); /* Inversion verticale pour l'effet miroir */
-  opacity: 0.5; /* Réduit l'intensité pour le reflet */
-  filter: blur(10px); /* Ajoute un flou pour le réalisme */
-  position: relative;
-  z-index: -1; /* Place derrière le contenu principal */
-  margin-top: 20px; /* Espacement entre le contenu principal et le reflet */
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 100%;
+  height: 100vh;
+  transform: scaleY(-1); /* Inversion verticale */
+  opacity: 0.3; /* Réduction d’intensité */
+  filter: blur(15px); /* Applique un flou pour un effet miroir réaliste */
+  z-index: 0; /* S’assure que l’effet est en arrière-plan */
+  pointer-events: none; /* Évite toute interaction */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 }
 
-.reflection:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px; /* Ajustez pour un fondu progressif */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
-  z-index: 1;
+
+/* ✅ Garde tes trois colonnes inchangées */
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  z-index: 10; /* Assure que le contenu principal est bien au-dessus du reflet */
 }
+
 
 /* Colonne de gauche (menu des sections) */
 .left-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: transparent; /* Supprime le fond translucide */
-    border: none; /* Supprime la bordure */
-    box-shadow: none; /* Supprime l'ombre */
-  }
-
-
-.left-column h2 {
-  font-size: 1.5rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.left-column p {
+/* Colonne centrale (avatar) */
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+  
+  .left-column p:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc; /* Augmente la luminosité */
+    border-color: #00ffcc;
+  }
+  
+  .left-column p {
     background-color: #21262d; /* Fond sombre */
     padding: 10px 20px;
     border-radius: 10px;
@@ -83,24 +90,7 @@ body, html {
   height: 20px; /* Hauteur fixe pour un alignement uniforme */
   line-height: 20px; /* Aligne verticalement le texte */
   }
-  
-  .left-column p:hover {
-    transform: translateY(-5px); /* Légère élévation au survol */
-    box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc; /* Augmente la luminosité */
-    border-color: #00ffcc;
-  }
-  
 
-/* Colonne centrale (avatar) */
-.center-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: transparent; /* Supprime le fond */
-    border: none; /* Supprime la bordure */
-    box-shadow: none; /* Supprime l'ombre */
-  }
 
 .center-column img {
   max-width: 100%;
@@ -108,28 +98,31 @@ body, html {
   border-radius: 10px;
 }
 
-/* Colonne de droite (carrousel des projets) */
+/* Colonne de droite (carousel des projets) */
 .right-column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 210px;
     background-color: transparent; /* Supprime le fond translucide */
     border: none; /* Supprime la bordure */
     box-shadow: none; /* Supprime l'ombre */
   }
-
-.right-column h2 {
-  font-size: 1.5rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-  margin-bottom: 10px;
-}
 
 .right-column .carousel-container {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
 }
+
+.right-column h2 {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+  margin-top: 0; /* Supprime tout écart inutile */
+  padding-top: 28px; /* Ajuste la hauteur pour l'alignement */
+}
+
 
 .card {
   background-color: #21262d; /* Fond sombre */
@@ -283,3 +276,85 @@ body, html {
   border-radius: 10px; /* Coins arrondis */
   z-index: 1; /* Place l'image derrière le texte */
 }
+
+/* CAROUSSEL */
+/* ✅ Conteneur du carrousel */
+.carousel-container {
+  width: 100%;
+  max-width: 450px; /* Ajustable selon ton design */
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+/* ✅ Style des slides */
+.slide {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #00ffcc; /* Bordure néon */
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+/* ✅ Overlay sombre pour le texte */
+.overlay {
+  background: rgba(13, 17, 23, 0.8); /* Semi-transparent */
+  color: #c9d1d9;
+  padding: 15px;
+  width: 90%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+}
+
+/* ✅ Titres du carrousel */
+h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+  margin: 0;
+}
+
+/* ✅ Description */
+p {
+  font-size: 1rem;
+  margin: 5px 0 0;
+}
+
+
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: 100%;
+  }
+}
+/*l'effet du en dessous du carousel*/
+.swiper-pagination-bullet {
+  background: rgba(0, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #00ffff;
+  width: 14px;
+  height: 14px;
+}
+

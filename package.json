@@ -23,7 +23,8 @@
     "@babel/cli": "^7.26.4",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swiper": "^11.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

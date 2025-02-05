@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Projet 1",
+    "description": "Description du projet 1",
+    "image": "01.png"
+  },
+  {
+    "title": "Projet 2",
+    "description": "Description du projet 2",
+    "image": "02.png"
+  },
+  {
+    "title": "Actualité 1",
+    "description": "Dernière mise à jour du projet",
+    "image": "03.png"
+  },
+  {
+    "title": "Projet 3",
+    "description": "Description du projet 3",
+    "image": "04.png"
+  },
+  {
+    "title": "Actualité 2",
+    "description": "Événement récent",
+    "image": "05.png"
+  }
+]

@@ -1,11 +1,9 @@
-
-import Navbar from "./components/Navbar"; // Assurez-vous d'avoir ce composant
-import Carousel from "./components/Carousel"; // Idem pour celui-ci
-import Footer from "./components/Footer"; // Et celui-ci
-import "./styles.css"; // Import des styles globaux
+import Navbar from "./components/Navbar"; 
+import Carousel from "./components/Carousel"; 
+import Footer from "./components/Footer"; 
+import "./styles.css"; 
 import AnimatedTitle from "./components/AnimatedTitle";
 import avatar from "./assets/avatar.png";
-
 
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
@@ -21,40 +19,39 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      {/* Colonne gauche : Menu */}
-      <div className="left-column">
-        <h1 className="title">Bienvenue sur mon Portfolio</h1>
-        <p>Introduction</p>
-        <p>Projets</p>
-        <p>Compétences</p>
-        <p>À propos</p>
-        <p>Contact</p>
-      </div>
+    <div className="page-container">
+      <div className="container">
+        <div className="left-column">
+          <h1 className="title">Bienvenue sur mon Portfolio</h1>
+          <p>Introduction</p>
+          <p>Projets</p>
+          <p>Compétences</p>
+          <p>À propos</p>
+          <p>Contact</p>
+        </div>
 
-      {/* Colonne centrale : Avatar */}
-      <div className="center-column">
-      <div className="neon-container">
-      <div className="neon-box">
-      <h1 className="neon-text red">ARTISTE</h1>
-      <h1 className="neon-text blue">BANG</h1>
-      </div>
-                <img src={avatar} alt="Avatar futuriste" className="avatar-image" />
-      </div>
-    </div>
+        <div className="center-column">
+          <div className="neon-container">
+            <div className="neon-box">
+              <h1 className="neon-text red">ARTISTE</h1>
+              <h1 className="neon-text blue">BANG</h1>
+            </div>
+            <img src={avatar} alt="Avatar futuriste" className="avatar-image" />
+          </div>
+        </div>
 
-      {/* Colonne droite : Carrousel */}
-      <div className="right-column">
-        <h2>Projets et Actualités</h2>
-        <div className="carousel-container">
-          <div className="card">Projet 1</div>
-          <div className="card">Projet 2</div>
-          <div className="card">Projet 3</div>
+        {/* Colonne droite : Carrousel dynamique */}
+        <div className="right-column">
+          <h2>Projets et Actualités</h2>
+          <div className="carousel-container">
+            <Carousel />
+          </div>
         </div>
       </div>
-    {/* Reflet */}
-    <div className="reflection">
-          {/* Reflet du menu */}
+
+      {/* Effet miroir */}
+      <div className="reflection">
+        <div className="container">
           <div className="left-column">
             <h1 className="title">Bienvenue sur mon Portfolio</h1>
             <p>Introduction</p>
@@ -64,7 +61,6 @@ function App() {
             <p>Contact</p>
           </div>
 
-          {/* Reflet de l'Avatar et du Texte */}
           <div className="center-column">
             <div className="neon-container">
               <div className="neon-box">
@@ -75,20 +71,15 @@ function App() {
             </div>
           </div>
 
-          {/* Reflet du carrousel */}
           <div className="right-column">
             <h2>Projets et Actualités</h2>
             <div className="carousel-container">
-              <div className="card">Projet 1</div>
-              <div className="card">Projet 2</div>
-              <div className="card">Projet 3</div>
+              <Carousel />
             </div>
           </div>
         </div>
       </div>
-
-
-    
+    </div>
   );
 }
 
